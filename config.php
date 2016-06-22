@@ -1,5 +1,5 @@
 <?php
-
+//config elements
 return array(
     	'host' => 'localhost',
     	'user' => 'root',
