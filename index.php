@@ -20,12 +20,13 @@
 	$params = array();
 	$params['email_id'] = isset($email_id) ? $email_id : '';
 	$params['user_pass'] = isset($user_pass) ? $user_pass : '';
-		if (is_array($data = $user_account->getUserAccount($params))) {
+	$data = $user_account->getUserAccount($params);
+		if ($data!=[]) {
 			$message["code"] = "0";
 			$message["data"] = $data;
 		} else {
 			$message["code"] = "1";
-			$message["message"] = "Error on post method";
+			$message["message"] = "User does not exist";
 		}
 	
 	header('Content-type: application/json; charset=utf-8');
