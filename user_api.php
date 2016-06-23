@@ -6,7 +6,7 @@ class AdstonCashUser{
 	
 	public function __construct(){
 		//Connecting to the database
-		this->db = connect();
+		$this->db = connect();
 	}
 	
 	public function __destruct()
