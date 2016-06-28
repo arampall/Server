@@ -35,7 +35,7 @@
 			$message["code"] = "1";
 			$message["message"] = "User does not exist";
 		}
-	
+	//var_dump($_SESSION["username"]);
 	//encoding the JSON response that is sent to the client
 	header('Content-type: application/json; charset=utf-8');
 	echo json_encode($message, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

@@ -1,7 +1,7 @@
 <?php
 
 	function connect(){ 
-		$conf = include('config.php');
+		$conf = include_once('config.php');
 		try 
         {
 			$db = new PDO(($conf["database"].":host=".$conf["host"].";dbname=".$conf["db_name"]), $conf["user"], $conf["password"]);
