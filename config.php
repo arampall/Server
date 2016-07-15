@@ -3,7 +3,7 @@
 return array(
     	'host' => 'localhost',
     	'user' => 'root',
-		'password' => 'acproto',
+		'password' => '',
 		'db_name' => 'adston',
 		'database' => 'mysql'
 );

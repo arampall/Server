@@ -43,8 +43,11 @@ class AdstonCashUser{
 	}
 	
 	function accessValidator($access_token){
-		$user_array=explode('$',$access_token);
-		$user_id=$user_array[1];
+		$user_id = null;
+		if($access_token!=null){
+			$user_array=explode('$',$access_token);
+			$user_id=$user_array[1];
+		}
 		$query="SELECT * FROM user_account WHERE user_id=:user_id AND access_token=:access_token;";
 		$sql=$this->db->prepare($query);
 		$sql->execute(array(':user_id' => $user_id,':access_token'=>$access_token));

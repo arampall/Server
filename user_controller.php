@@ -10,7 +10,9 @@
 	}
     
 	require_once 'user_api.php';
+	require_once 'video_api.php';
 	$user_account = new AdstonCashUser();
+	$video = new AdstonCashVideo();
 	$message = array();
 	
 	//obtaining and parsing JSON POST data
@@ -32,6 +34,7 @@
 				//User data exists with the given email-id and password
 				$message["code"] = "0";
 				$message["login_data"] = $data;
+				$message["queue_data"] = $video->getAllVideoDetails();
 				$userId=$message["login_data"]["user_id"];
 				
 				//Generate a random string.
