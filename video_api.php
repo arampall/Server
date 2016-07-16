@@ -31,7 +31,7 @@ class AdstonCashVideo{
 		{
 			$category_list[] = $row;
 		}
-		$sql =  "SELECT category_type.category,video.video_id,video.company_name,video.poster_url FROM video INNER JOIN category_type on video.category_id = category_type.category_id where category_type.category_id=:category_id order by RAND() LIMIT 3";
+		$sql =  "SELECT category_type.category,video.video_id,video.company_name,video.video_title,video.poster_url FROM video INNER JOIN category_type on video.category_id = category_type.category_id where category_type.category_id=:category_id order by RAND() LIMIT 3";
 		$sql_prepare = $this->db->prepare($sql);
 		$list_queue = array();
 		$total_categories = count($category_list);
