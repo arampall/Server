@@ -22,7 +22,11 @@ class AdstonCashVideo{
 		return $sql_prepare->fetch((PDO::FETCH_ASSOC));
 	}
 	
+<<<<<<< HEAD
+	/*function getAllVideoDetails(){
+=======
 	function getAllVideoDetails(){
+>>>>>>> 2358e7bd097f255791eb08411de4134768648e14
 		// obtain all the required video details with the particular demographic details provided
 		$sql =  "SELECT * from category_type";
 		$result = $this->db->query($sql);
@@ -45,8 +49,52 @@ class AdstonCashVideo{
 			$list_queue[$category_list[$x]['category']] = $list;
 		}
 		return $list_queue;
+<<<<<<< HEAD
+	}*/
+	
+    function getAllCategories(){
+		$sql =  "SELECT * from category_type";
+		$result = $this->db->query($sql);
+		$category_list = array();
+		while ($row = $result->fetch((PDO::FETCH_ASSOC)))
+		{
+			$category_list[] = $row;
+		}
+        return $category_list;
+    }
+    function getAllVideos(){
+		$sql =  "SELECT * from video order by RAND() LIMIT 15";
+		$result = $this->db->query($sql);
+		$video_list = array();
+		while ($row = $result->fetch((PDO::FETCH_ASSOC)))
+		{
+			$video_list[] = $row;
+		}
+        return $video_list;
+    }
+    
+    function getWatchedVideos($userId){
+        $sql =  "SELECT video_id from user_video WHERE user_id = :user_id AND status='watched'";
+        $sql_prepare = $this->db->prepare($sql);
+		$sql_prepare->execute(array(':user_id'=> $userId));
+        $watched_videos = array();
+		while ($row = $sql_prepare->fetch((PDO::FETCH_ASSOC)))
+		{
+			$watched_videos[] = $row;
+		}
+        return $watched_videos;
+    }
+    
+    function updateVideoStatus($userId,$videoId,$status){
+        $sql =  "UPDATE user_video SET status = :status WHERE user_id = :user_id AND video_id = :video_id";
+        $sql_prepare = $this->db->prepare($sql);
+		$count = $sql_prepare->execute(array(':status'=> $status, ':user_id'=> $userId, ':video_id'=> $videoId));
+        return $count;
+    }
+=======
 	}
 		
+>>>>>>> 2358e7bd097f255791eb08411de4134768648e14
 }
 	
 ?>

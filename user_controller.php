@@ -34,7 +34,11 @@
 				//User data exists with the given email-id and password
 				$message["code"] = "0";
 				$message["login_data"] = $data;
+<<<<<<< HEAD
+				$message["queue_data"] = $video->getAllVideos();
+=======
 				$message["queue_data"] = $video->getAllVideoDetails();
+>>>>>>> 2358e7bd097f255791eb08411de4134768648e14
 				$userId=$message["login_data"]["user_id"];
 				
 				//Generate a random string.
