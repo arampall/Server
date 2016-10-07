@@ -3,9 +3,9 @@
 return array(
     	'host' => 'localhost',
     	'user' => 'root',
-	'password' => 'acproto',
-	'db_name' => 'adston',
-	'database' => 'mysql'
+		'password' => '',
+		'db_name' => 'adston',
+		'database' => 'mysql'
 );
 
 ?>

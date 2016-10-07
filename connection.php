@@ -1,7 +1,7 @@
 <?php
 
 	function connect(){ 
-		$conf = include_once('config.php');
+		$conf = require 'config.php';
 		try 
         {
 			$db = new PDO(($conf["database"].":host=".$conf["host"].";dbname=".$conf["db_name"]), $conf["user"], $conf["password"]);
@@ -10,7 +10,6 @@
         catch (PDOException $e) 
         {
             echo $e->getMessage();
-
         }
 		return $db;
 	}
